@@ -87,7 +87,34 @@ Identify Federation
   - Short polling returns immediately even if empty but Long Polling does not return a response until a message arrives in message queue or long poll times out
   - Long Polling make it inexpensive to retrieve messages from SQS queue
   - Most cases prefer long polling
-AWS Step Functions
+
+## AWS Step Functions
+  -fully managed service 
+  -provides easy to coordiante components of distributed applications and microservices using visual workflows
+  -reliable way to coordinate components and step through the functions of your app
+  -provide a GUI console to arrange and visualize components of app as a series of steps
+  -makes it simple to build and run multi-step apps
+  -auto triggers and tracks each step and retries when there are errors so your app executes in order as expected
+  - logs the state of each step, so when things do go wrong, can diagnose and debug problems quickly
+  - can change and add steps w/o writing code
+  - helps w/ computational problem or business process that can be subdivided into a series of steps
+  - useful for creating end-to-end workflows to manage jobs w/ interdpendeinces
+  - Use cases 
+      ** Data Processing
+      ** DevOps and IT automation
+      ** Ecommerce
+      ** Web applications
+  - How does it work
+      1.  define state machine that describes workflow as a series of steps, their relationships and their inputs and outputs
+      2.  State machines contain a number of states, each represents an individual step in a workflow diagram
+      3.  States can perform work, make choices, pass parameters, initial parrallel execution, manage timeouts or termining workflow w/ success or failure
+  - How to connect to resources
+      1.  congigure state machines to perform work by usign activity tasks and service tasks
+      2.  Activity Tasks lets you assign a specific step in your workflow to code running somehwhere else (aka activity worker)
+            ** Activity Workers can be any app that can make an HTTP connection, hosted anywhere
+      3.  Service tasks let you connect a step in your workflow to a supported AWS service
+      4.  Step functions pushes request  to other services so they can perform actions for your workflow, waits for service taks to complete and continues to next step
+  - 
 API Gateway
 CloudFront
 ElastiCache
