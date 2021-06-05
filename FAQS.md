@@ -38,7 +38,36 @@ Serverless
       ** groups do not have security credentials and cannot access web services directly.; exist only to make easier to manage user permissions
 STS
 Identify Federation
-DyanmoDB
+## DyanmoDB
+  - nonrelational db service for any scale
+  - manages db SW and provisioning of HW
+  - auto scales throughput capacity to meet workload demands adn partitions and repartitions data as your size grows
+  - replicates across 3 facilities in an AWS Regions to provide high availability and high durability
+  - Can specify whether want the read to be eventually consistent or strongly consistent
+      ** EVENTUAL CONSISTIST READS
+          - default
+          - maximzes read throughput
+          - may not reflects results of recently completed write
+          - all copies of data usually reach consistency w/in a second
+      ** STRONGLY CONSISTENT READS
+          - returns result that reflects all writes that received a successful response before the read
+      ** ACID TRANSACTIONS
+          - provide deveopers atomicty, consistency, isolation and durability (ACID) across one more tables w/in single AWS account and region
+          - can use transactions when building apps that require coordinated inserts, deletes or updates to multiple items as part of a single business ops
+  - supports GET/PUT ops by useing a user-defined PK
+  - PK is specified when create a table
+  - PK can be either a single-attribute partition key or a composite partition-sort key
+      ** Single Attribute Partition Key
+      ** Compositie Partition-Sort Key
+            - maintains hierarchy between the first and second element values
+            - i.e. combo of UserID (partition) and Timestamp (sort)
+            - holding the partitional key element constant, can search across the sort key element to retrieve items (ie.. by using Query API)
+  - can be created using the console or CreateTable API
+  - use PutItem or BatchWriteItem APIs to insert items
+  -  use GetItem BatchGetItem or Query API (for compositie) to retrieve items from table
+  -  each table has provisioned read-throughput and write-throughput associated w/ it and are billed by the hour for throughput beyond free tier whether using sending requests to table or not
+      ** can change provisioned throughput capaicty in console, the UpdateTable API or PutScalingPolicy API for auto scaling
+  - also charges for data storage an standard internet data transfer fees
 SNS
 SQS
 AWS Step Functions
