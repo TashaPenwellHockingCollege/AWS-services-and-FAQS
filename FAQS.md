@@ -68,8 +68,25 @@ Identify Federation
   -  each table has provisioned read-throughput and write-throughput associated w/ it and are billed by the hour for throughput beyond free tier whether using sending requests to table or not
       ** can change provisioned throughput capaicty in console, the UpdateTable API or PutScalingPolicy API for auto scaling
   - also charges for data storage an standard internet data transfer fees
-SNS
-SQS
+## SNS
+  -web service that makes it easy to set up, operate and send notifications from the cloud
+  - highly scalable, flexibile and cost efective capability to publish message and deliver to subscribers or other apps
+  - Benefits
+    ** instantaneous, push-based deliverying (no polling)
+    ** simple APIs adn easy integration w/ other apps
+    ** Flexible message delivery over multiple tranport protocols
+    ** inexpensive, pay as your go, no up-front costs
+    ** simple interface
+
+## SQS
+  - cost is calculated per requrest plus data transfer charges transferred out of SQS 
+    ** exception on charges for data transferred out is if transferred to EC2 isntances or to Lambda functions w/in the same region)
+  - free tier allows 1 million requests but data transfer charged can still appy
+  - only the AWS account owner (or user that owner delegrate rights to) can perform operations on SQS meassage queue
+  - SQS Long polling is a way to retrieve messages from SQS queue.
+  - Short polling returns immediately even if empty but Long Polling does not return a response until a message arrives in message queue or long poll times out
+  - Long Polling make it inexpensive to retrieve messages from SQS queue
+  - Most cases prefer long polling
 AWS Step Functions
 API Gateway
 CloudFront
