@@ -27,7 +27,15 @@ Maintenance
 
 
 Serverless
-IAM
+## IAM
+  - used to control individual and groupe access
+  - IAM groups
+      ** collection of IAM users
+      ** can add or remove users from a gorup
+      ** user can belong to multiple groups
+      ** groups cannot belong to othe rgroups
+      ** groups can be granted permission using access control policies
+      ** groups do not have security credentials and cannot access web services directly.; exist only to make easier to manage user permissions
 STS
 Identify Federation
 DyanmoDB
